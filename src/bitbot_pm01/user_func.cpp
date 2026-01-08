@@ -156,22 +156,11 @@ std::optional<bitbot::StateId> EventSystemTest(bitbot::EventValue value,
 void StateWaiting(const bitbot::KernelInterface& kernel,
     Kernel::ExtraData& extra_data, UserData& d)
 {
-    // 1. 定义静态变量，程序生命周期内只初始化一次
-    static bool is_initialized = false;
+    d.MotorWorker->SetCurrentPositionAsTargetPosition();
 
     // 2. 必须先运行调度器，确保 CurrentMotorPosition 更新了数据
     d.TaskScheduler->SpinOnce();
 
-    // // 3. 如果是第一次进入，执行锁定逻辑
-    // if (!is_initialized) {
-    //     // 将当前位置设为目标位置（只执行一次，实现位置锁定）
-    //     d.MotorWorker->SetCurrentPositionAsTargetPosition();
-        
-    //     // 标记为已完成
-    //     is_initialized = true;
-        
-    //     std::cout << "[StateWaiting] Position Locked (Static Init)." << std::endl;
-    // }
 }
 
 void StateSystemTest(const bitbot::KernelInterface& kernel,

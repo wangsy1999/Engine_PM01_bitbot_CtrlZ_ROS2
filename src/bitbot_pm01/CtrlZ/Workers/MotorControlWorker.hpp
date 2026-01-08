@@ -376,8 +376,8 @@ namespace z
          */
         void TaskCycleEnd() override
         {
-            // ================== [新增] 跳过第一帧逻辑 ==================
-            if (this->is_first_run_<5)
+            // // ================== [新增] 跳过第一帧逻辑 ==================
+            if (this->is_first_run_<1)
             {
                 MotorValVec TargetVel = MotorValVec::zeros();
             this->Scheduler->template SetData<"TargetMotorPosition">(CurrentMotorPos);
@@ -387,7 +387,7 @@ namespace z
                 std::cout << "[MotorWorker] First cycle detected. Skipping command output for safety." << std::endl;
                 return; // 直接返回，不执行下面的 SetTargetTorque/Position
             }
-            // =========================================================
+            // // =========================================================
 
             MotorValVec MotorTorque;
             this->Scheduler->template GetData<"TargetMotorTorque">(MotorTorque);
