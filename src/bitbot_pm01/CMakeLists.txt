@@ -18,13 +18,6 @@ BitbotAddDependency(
   USE_LOCAL_FILE TRUE
 )
 
-# include(FetchContent)
-# FetchContent_Declare(
-#   ovinf
-#   GIT_REPOSITORY https://github.com/Dknt0/ovinf.git 
-#   GIT_TAG main
-# )
-# FetchContent_MakeAvailable(ovinf)
 find_package(Eigen3 REQUIRED)
 message(STATUS "Eigen version=${Eigen3_VERSION}")
 set(PROJECT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
@@ -49,10 +42,8 @@ endif()
 # --- 修复开始 ---
 message(STATUS "ONNX Path: ${ONNXRUNTIME_ROOT}")
 
-# 1. 包含 ONNX Runtime 头文件路径
 include_directories(${ONNXRUNTIME_ROOT}/include)
 
-# 2. 找到并链接 ONNX Runtime 库文件 (以便后续链接使用)
 find_library(ONNXRUNTIME_LIB onnxruntime 
     PATHS ${ONNXRUNTIME_ROOT}/lib 
     NO_DEFAULT_PATH
@@ -65,7 +56,6 @@ else()
 endif()
 # --- 修复结束 ---
 add_subdirectory(CtrlZ)
-# find_package(OpenVINO REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -74,7 +64,6 @@ find_package(sensor_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(interface_protocol REQUIRED)
-# find_package(booster_interface REQUIRED)
 include_directories("/usr/include/eigen3")
 
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/src/device BITBOT_ENGINE_DEVICE_SRC)
