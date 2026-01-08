@@ -1,0 +1,182 @@
+{
+  "Scheduler": {
+    "dt": 0.002,
+    "CheckFrequency": false,
+    "InferTask": {
+      "PolicyFrequency": 5
+    }
+  },
+  "Workers": {
+    "ResetPosition": {
+      "Duration": 3
+    },
+    "Commander": {
+      "EchoCmd": true,
+      "UpperLimit": [
+        2.4,
+        0.3,
+        0.8
+      ],
+      "LowerLimit": [
+        -0.5,
+        -0.3,
+        -0.8
+      ],
+      "DiscreteCmdStep": [
+        0.1,
+        0.05,
+        0.05
+      ],
+      "ReverseJoystickAxis": [
+        false,
+        false,
+        false
+      ]
+    },
+
+
+    "MotorControl": {
+      "ControlMode": "Position",
+
+      "PosFilterWeight": [
+        1
+      ],
+      "VelFilterWeight": [
+        1
+      ],
+      "DefaultPosition": [
+        -0.3,
+        -0.3,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.6,
+        0.6,
+        -0.3,
+        -0.3,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+
+      ]
+    },
+      "MotorControl2": {
+      "ControlMode": "Torque",
+      "TorqueLimit": [
+
+        60,
+        60
+      ],
+      "PosFilterWeight": [
+        1
+      ],
+      "VelFilterWeight": [
+        1
+      ],
+      "DefaultPosition": [
+
+        -0.1,
+        -0.1
+      ]
+    },
+    "ImuProcess": {
+      "AccFilterWeight": [
+        1
+      ],
+      "GyroFilterWeight": [
+        1
+      ],
+      "MagFilterWeight": [
+        1
+      ]
+    },
+    "AsyncLogger": {
+      "LogPath": "/home/wsy/bitbot_log/extra_data/",
+      "WriteBackFrequency": 100
+    },
+    "NN": {
+      "Inference": {
+        "WarmUpModel": false,
+        "IntraNumberThreads": 2
+      },
+      "Network": {
+        "ModelPath": "/home/wsy/rl/CtrlZ_sim/Simulation/GB2/main_run_robot/checkpoints/policy.onnx",
+        "InputNodeNames": [
+          "obs"
+        ],
+        "OutputNodeNames": [
+          "actions"
+        ],
+        "Cycle_time": 0.7,
+        "SwitchTime": 1.0
+      },
+      "Preprocess": {
+        "ObservationScales": {
+          "lin_vel": 1.0,
+          "ang_vel": 1.0,
+          "project_gravity": 1.0,
+          "dof_pos": 1.0,
+          "dof_vel": 0.05
+        },
+        "ClipObservations": 100.0
+      },
+      "Postprocess": {
+        "clip_actions": 50,
+        "action_scale": [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "joint_clip_upper": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "joint_clip_lower": [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10
+        ]
+      }
+    }
+  }
+}
