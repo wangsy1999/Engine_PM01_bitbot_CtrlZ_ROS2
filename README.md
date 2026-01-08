@@ -3,7 +3,7 @@
 
 ## 📖 简介 (Introduction)
 
-本项目旨在构建一套基于深度强化学习（RL）的机器人控制框架，专注于 **EngineAI（恩井科技）** 系列机器人（如 SE01 等）的仿真与真机部署。
+本项目旨在构建一套基于深度强化学习（RL）的机器人控制框架，专注于 **EngineAI（众擎）** 系列机器人（如 PM01 等）的仿真与真机部署。
 
 项目基于 ROS2 架构，实现了从仿真训练到 Sim2Real 的完整流程。目前的重点在于打通仿真与真机的控制接口，并实现鲁棒的运动控制。
 
@@ -46,18 +46,22 @@ git clone https://github.com/engineai-robotics/engineai_ros2_workspace.git
 # 3. 安装仿真环境（参考https://github.com/engineai-robotics/engineai_ros2_workspace）
 
 # 4. 克隆本项目
-# git clone [https://github.com/YourUsername/YourRepo.git](https://github.com/YourUsername/YourRepo.git) .
+# git clone git@github.com:wangsy1999/Engine_PM01_bitbot_CtrlZ_ROS2.git
 
 # 5. 编译
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+colcon build 
 ```
 ### 2. 运行仿真 (Simulation)
 
-source install/setup.bash
+参考https://github.com/engineai-robotics/engineai_ros2_workspace
 
-### 3. 启动仿真环境与控制器 (请根据实际 Launch 文件名修改)
-ros2 launch engine_rl_controller simulation.launch.py
-📂 文件结构 (Structure)
+### 3. 启动bitbot 
+```bash
+source install/setup.bash 
+ros2 run bitbot_engine main_app
+```
+
+## 📂 文件结构 (Structure)
 
 ```text
 .
