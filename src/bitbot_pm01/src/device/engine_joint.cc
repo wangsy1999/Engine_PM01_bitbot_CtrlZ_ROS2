@@ -79,8 +79,8 @@ void EngineJoint::Output(const RosInterface::Ptr ros_interface) {
   if (power_on_ && enable_) {
 
     cmd.position[idx] = target_position_;
-    cmd.velocity[idx] = target_velocity_;
-    cmd.torque[idx] = target_torque_;
+    cmd.velocity[idx] = 0;
+    cmd.torque[idx] = 0;
     // 注意：ROS标准JointState没有 stiffness/damping，除非你自定义了消息
     // 如果报错说没有 stiffness，请注释掉下面两行
     cmd.stiffness[idx] = p_gain_; 
