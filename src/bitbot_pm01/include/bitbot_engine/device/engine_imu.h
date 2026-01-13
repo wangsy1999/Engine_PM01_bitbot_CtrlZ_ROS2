@@ -2,12 +2,14 @@
 #define Engine_IMU_H
 
 #include "bitbot_engine/device/engine_device.hpp"
-
+#include <Eigen/Dense>
 namespace bitbot {
-
+Eigen::Vector3d CalcRollPitchYawFromRotationMatrix(const Eigen::Matrix3d& R);
 class EngineImu final : public EngineDevice {
  public:
+  
   EngineImu(pugi::xml_node const& device_node);
+  
   ~EngineImu();
 
   inline double GetRoll() { return roll_; }
