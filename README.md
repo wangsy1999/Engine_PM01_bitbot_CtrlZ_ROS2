@@ -17,11 +17,10 @@ This repository contains the RL control framework for EngineAI robots, bridging 
     - [x] 验证基础关节控制与状态反馈。
     - [x] 验证通信链路稳定性。
 - [ ] **模型推理 (Inference)**
-    - [ ] 实现 RL Policy 在 C++/Python 节点中的加载 (ONNX/LibTorch)。
+    - [x] 实现 RL Policy 在 C++/Python 节点中的加载 (ONNX/LibTorch)。
     - [ ] 仿真环境下的闭环控制测试。
 - [ ] **真机部署 (Real Robot)**
-    - [ ] 适配 EngineAI 真机 SDK / 硬件通讯接口。
-    - [ ] 解决 Sim2Real 的通信延迟与状态估计问题。
+    - [x] 适配 EngineAI 真机 SDK / 硬件通讯接口。
     - [ ] 挂架安全测试与实机验证。
 
 ## 🛠️ 依赖 (Dependencies)
