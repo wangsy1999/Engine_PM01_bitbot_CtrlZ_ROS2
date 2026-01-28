@@ -18,18 +18,18 @@ This repository contains the RL control framework for EngineAI robots, bridging 
     - [x] 验证通信链路稳定性。
 - [ ] **模型推理 (Inference)**
     - [x] 实现 RL Policy 在 C++/Python 节点中的加载 (ONNX/LibTorch)。
-    - [ ] 仿真环境下的闭环控制测试。
+    - [ ] 仿真环境下的闭环控制测试。（目前ROS2仿真中存在问题，机器人行走效果与CtrlZ中差异较大）
 - [ ] **真机部署 (Real Robot)**
     - [x] 适配 EngineAI 真机 SDK / 硬件通讯接口。
-    - [ ] 挂架安全测试与实机验证。
+    - [ ] 挂架安全测试与实机验证。（复位已经测试，可以正常运行）
 
 ## 🛠️ 依赖 (Dependencies)
 
-* **Operating System**: Ubuntu 22.04 (Recommended) / 20.04
-* **Middleware**: ROS2 Humble / Iron
+* **Operating System**: Ubuntu 22.04 (Recommended)
+* **Middleware**: ROS2 Humble
 * **Simulation Env**: [engineai_ros2_workspace (branch: community)](https://github.com/engineai-robotics/engineai_ros2_workspace/tree/community)
 * **Hardware**: EngineAI Robot (e.g., SE01)
-* **Languages**: C++ 17, Python 3.10+
+* **Languages**: C++ 17
 
 ## 🚀 使用指南 (Usage)
 
@@ -76,7 +76,7 @@ ros2 run bitbot_engine main_app
 
 * **[CtrlZ](https://github.com/ZzzzzzS/CtrlZ)**: 提供了核心的控制架构思路与工程实现参考。
 * **[bitbot-unitree](https://github.com/ZzzzzzS/bitbot-unitree)**: 提供了 Sim2Sim 到 Sim2Real 的适配流程参考。
-* **[bitbot_booster](https://github.com/Dknt0/bitbot_booster)**: 提供了高性能优化方案与工具链支持。
+* **[bitbot_booster](https://github.com/Dknt0/bitbot_booster)**: 提供了类ROS2的bitbot设备实例。
 
 ## ⚠️ 免责声明 (Disclaimer)
 
