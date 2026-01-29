@@ -1,9 +1,9 @@
 {
   "Scheduler": {
-    "dt": 0.002,
-    "CheckFrequency": false,
+    "dt": 0.001,
+    "CheckFrequency": true,
     "InferTask": {
-      "PolicyFrequency": 5
+      "PolicyFrequency": 20
     }
   },
   "Workers": {
@@ -13,13 +13,13 @@
     "Commander": {
       "EchoCmd": true,
       "UpperLimit": [
-        2.4,
-        0.3,
+        1,
+        0.4,
         0.8
       ],
       "LowerLimit": [
         -0.5,
-        -0.3,
+        -0.4,
         -0.8
       ],
       "DiscreteCmdStep": [
@@ -33,64 +33,6 @@
         false
       ]
     },
-
-
-    "MotorControl": {
-      "ControlMode": "Position",
-
-      "PosFilterWeight": [
-        1
-      ],
-      "VelFilterWeight": [
-        1
-      ],
-      "DefaultPosition": [
-        -0.3,
-        -0.3,
-        0.0,
-        0.0,
-        -0.0,
-        -0.0,
-        0.6,
-        0.6,
-        -0.3,
-        -0.3,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
-
-      ]
-    },
-      "MotorControl2": {
-      "ControlMode": "Torque",
-      "TorqueLimit": [
-
-        60,
-        60
-      ],
-      "PosFilterWeight": [
-        1
-      ],
-      "VelFilterWeight": [
-        1
-      ],
-      "DefaultPosition": [
-
-        -0.1,
-        -0.1
-      ]
-    },
     "ImuProcess": {
       "AccFilterWeight": [
         1
@@ -102,6 +44,44 @@
         1
       ]
     },
+
+    "MotorControl": {
+      "ControlMode": "Position",
+
+      "PosFilterWeight": [
+        1
+      ],
+      "VelFilterWeight": [
+        1
+      ],
+      "DefaultPosition": [
+        -0.1,
+        -0.1,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.3,
+        0.3,
+        0.0,
+        0.0,
+        -0.2,
+        -0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+
+      ]
+    },
+
     "AsyncLogger": {
       "LogPath": "/home/wsy/bitbot_log/extra_data/",
       "WriteBackFrequency": 100
@@ -112,20 +92,20 @@
         "IntraNumberThreads": 2
       },
       "Network": {
-        "ModelPath": "/home/wsy/rl/CtrlZ_sim/Simulation/GB2/main_run_robot/checkpoints/policy.onnx",
+        "ModelPath": "/home/wsy/rl/infer_node/src/bitbot_pm01/policy.onnx",
         "InputNodeNames": [
           "obs"
         ],
         "OutputNodeNames": [
           "actions"
         ],
-        "Cycle_time": 0.7,
+        "Cycle_time": 0.8,
         "SwitchTime": 1.0
       },
       "Preprocess": {
         "ObservationScales": {
           "lin_vel": 1.0,
-          "ang_vel": 1.0,
+          "ang_vel": 0.2,
           "project_gravity": 1.0,
           "dof_pos": 1.0,
           "dof_vel": 0.05
@@ -135,6 +115,17 @@
       "Postprocess": {
         "clip_actions": 50,
         "action_scale": [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
           0.25,
           0.25,
           0.25,
@@ -160,9 +151,31 @@
           10,
           10,
           10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
           10
         ],
         "joint_clip_lower": [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
           -10,
           -10,
           -10,

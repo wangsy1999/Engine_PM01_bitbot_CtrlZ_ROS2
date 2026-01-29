@@ -3,34 +3,34 @@
   <logger path="/home/wsy/bitbot_log" level="debug"/>
   <backend port="12888" settings_file="./backend.json"/>
   <bus>
-    <device id="0"  type="EngineJoint" name="J00_HIP_PITCH_L"   enable="true" ros_joint_index="0" kp="40.2" kd="2.56"/>
-    <device id="1"  type="EngineJoint" name="J01_HIP_ROLL_L"    enable="true" ros_joint_index="1" kp="40.2" kd="2.56"/>
-    <device id="2"  type="EngineJoint" name="J02_HIP_YAW_L"     enable="true" ros_joint_index="2" kp="40.2" kd="2.56"/>
-    <device id="3"  type="EngineJoint" name="J03_KNEE_PITCH_L"  enable="true" ros_joint_index="3" kp="40.2" kd="2.56"/>
-    <device id="4"  type="EngineJoint" name="J04_ANKLE_PITCH_L" enable="true" ros_joint_index="4" kp="40.2" kd="2.56"/>
-    <device id="5"  type="EngineJoint" name="J05_ANKLE_ROLL_L"  enable="true" ros_joint_index="5" kp="40.2" kd="2.56"/>
+    <device id="0"  type="EngineJoint" name="J00_HIP_PITCH_L"   enable="true" ros_joint_index="0" kp="100" kd="2"/>
+    <device id="1"  type="EngineJoint" name="J01_HIP_ROLL_L"    enable="true" ros_joint_index="1" kp="100" kd="2"/>
+    <device id="2"  type="EngineJoint" name="J02_HIP_YAW_L"     enable="true" ros_joint_index="2" kp="100" kd="2"/>
+    <device id="3"  type="EngineJoint" name="J03_KNEE_PITCH_L"  enable="true" ros_joint_index="3" kp="150" kd="4"/>
+    <device id="4"  type="EngineJoint" name="J04_ANKLE_PITCH_L" enable="true" ros_joint_index="4" kp="40" kd="1"/>
+    <device id="5"  type="EngineJoint" name="J05_ANKLE_ROLL_L"  enable="true" ros_joint_index="5" kp="40" kd="1"/>
 
-    <device id="6"  type="EngineJoint" name="J06_HIP_PITCH_R"    enable="true" ros_joint_index="6" kp="40.2" kd="2.56"/>
-    <device id="7"  type="EngineJoint" name="J07_HIP_ROLL_R"     enable="true" ros_joint_index="7" kp="40.2" kd="2.56"/>
-    <device id="8"  type="EngineJoint" name="J08_HIP_YAW_R"      enable="true" ros_joint_index="8" kp="40.2" kd="2.56"/>
-    <device id="9"  type="EngineJoint" name="J09_KNEE_PITCH_R"   enable="true" ros_joint_index="9" kp="40.2" kd="2.56"/>
-    <device id="10" type="EngineJoint" name="J10_ANKLE_PITCH_R"  enable="true" ros_joint_index="10" kp="40.2" kd="2.56"/>
-    <device id="11" type="EngineJoint" name="J11_ANKLE_ROLL_R"   enable="true" ros_joint_index="11" kp="40.2" kd="2.56"/>
+    <device id="6"  type="EngineJoint" name="J06_HIP_PITCH_R"    enable="true" ros_joint_index="6" kp="100" kd="2"/>
+    <device id="7"  type="EngineJoint" name="J07_HIP_ROLL_R"     enable="true" ros_joint_index="7" kp="100" kd="2"/>
+    <device id="8"  type="EngineJoint" name="J08_HIP_YAW_R"      enable="true" ros_joint_index="8" kp="100" kd="2"/>
+    <device id="9"  type="EngineJoint" name="J09_KNEE_PITCH_R"   enable="true" ros_joint_index="9" kp="150" kd="4"/>
+    <device id="10" type="EngineJoint" name="J10_ANKLE_PITCH_R"  enable="true" ros_joint_index="10" kp="40.2" kd="1"/>
+    <device id="11" type="EngineJoint" name="J11_ANKLE_ROLL_R"   enable="true" ros_joint_index="11" kp="40.2" kd="1"/>
 
 
-    <device id="12" type="EngineJoint" name="J12_WAIST_YAW"        enable="true" ros_joint_index="12" kp="40.2" kd="2.56"/>
+    <device id="12" type="EngineJoint" name="J12_WAIST_YAW"        enable="true" ros_joint_index="12" kp="200" kd="5"/>
     
-    <device id="13" type="EngineJoint" name="J13_SHOULDER_PITCH_L" enable="true" ros_joint_index="13" kp="40.2" kd="2.56"/>
-    <device id="14" type="EngineJoint" name="J14_SHOULDER_ROLL_L"  enable="true" ros_joint_index="14" kp="40.2" kd="2.56"/>
-    <device id="15" type="EngineJoint" name="J15_SHOULDER_YAW_L"   enable="true" ros_joint_index="15" kp="40.2" kd="2.56"/>
-    <device id="16" type="EngineJoint" name="J16_ELBOW_PITCH_L"    enable="true" ros_joint_index="16" kp="40.2" kd="2.56"/>
-    <device id="17" type="EngineJoint" name="J17_ELBOW_YAW_L"      enable="true" ros_joint_index="17" kp="40.2" kd="2.56"/>
+    <device id="13" type="EngineJoint" name="J13_SHOULDER_PITCH_L" enable="true" ros_joint_index="13" kp="40.2" kd="1"/>
+    <device id="14" type="EngineJoint" name="J14_SHOULDER_ROLL_L"  enable="true" ros_joint_index="14" kp="40.2" kd="1"/>
+    <device id="15" type="EngineJoint" name="J15_SHOULDER_YAW_L"   enable="true" ros_joint_index="15" kp="40.2" kd="1"/>
+    <device id="16" type="EngineJoint" name="J16_ELBOW_PITCH_L"    enable="true" ros_joint_index="16" kp="40.2" kd="1"/>
+    <device id="17" type="EngineJoint" name="J17_ELBOW_YAW_L"      enable="true" ros_joint_index="17" kp="40.2" kd="1"/>
 
-    <device id="18" type="EngineJoint" name="J18_SHOULDER_PITCH_R" enable="true" ros_joint_index="18" kp="40.2" kd="2.56"/>
-    <device id="19" type="EngineJoint" name="J19_SHOULDER_ROLL_R"  enable="true" ros_joint_index="19" kp="40.2" kd="2.56"/>
-    <device id="20" type="EngineJoint" name="J20_SHOULDER_YAW_R"   enable="true" ros_joint_index="20" kp="40.2" kd="2.56"/>
-    <device id="21" type="EngineJoint" name="J21_ELBOW_PITCH_R"    enable="true" ros_joint_index="21" kp="40.2" kd="2.56"/>
-    <device id="22" type="EngineJoint" name="J22_ELBOW_YAW_R"      enable="true" ros_joint_index="22" kp="40.2" kd="2.56"/>
+    <device id="18" type="EngineJoint" name="J18_SHOULDER_PITCH_R" enable="true" ros_joint_index="18" kp="40.2" kd="1"/>
+    <device id="19" type="EngineJoint" name="J19_SHOULDER_ROLL_R"  enable="true" ros_joint_index="19" kp="40.2" kd="1"/>
+    <device id="20" type="EngineJoint" name="J20_SHOULDER_YAW_R"   enable="true" ros_joint_index="20" kp="40.2" kd="1"/>
+    <device id="21" type="EngineJoint" name="J21_ELBOW_PITCH_R"    enable="true" ros_joint_index="21" kp="40.2" kd="1"/>
+    <device id="22" type="EngineJoint" name="J22_ELBOW_YAW_R"      enable="true" ros_joint_index="22" kp="40.2" kd="1"/>
     
     <device id="23" type="EngineJoint" name="J23_HEAD_YAW"         enable="false" ros_joint_index="23" kp="40.2" kd="2.56"/>
     <device id="24" type="EngineImu" name="imu"/>

@@ -22,11 +22,8 @@
 #include "Workers/MotorResetPositionWorker.hpp"
 #include "Workers/MotorResetPositionWorker2.hpp"
 #include "Workers/NetCmdWorker.hpp"
-#include "Workers/MotorControlWorker2.hpp"
-#include "Workers/NN/EraxLikeInferenceWorker.hpp"
-#include "Workers/NN/UnitreeRlGymInferenceWorker.hpp"
-#include "Workers/NN/HumanoidGymInferenceWorker.hpp"
-// #include "Workers/NN/HumanoidGymLSTMInferenceWorker.hpp"
+#include "LabInferenceWorker.hpp"
+
 
 /************ basic definintion***********/
 #include "include/bitbot_engine/device/engine_imu.h"
@@ -36,7 +33,7 @@ using DeviceJoint = bitbot::EngineJoint;
 
 /************ basic definintion***********/
 using RealNumber = float;
-constexpr size_t JOINT_NUMBER = 24;
+constexpr size_t JOINT_NUMBER = 23;
 using Vec3 = z::math::Vector<RealNumber, 3>;
 using MotorVec = z::math::Vector<RealNumber, JOINT_NUMBER>;
 using Vec6 = z::math::Vector<RealNumber, 6>;
@@ -82,7 +79,6 @@ using SchedulerType = z::AbstractScheduler<ImuAccRawPair, ImuGyroRawPair, ImuMag
 
 //define workers
 using MotorResetWorkerType = z::MotorResetPositionWorker<SchedulerType, RealNumber, JOINT_NUMBER>;
-using MotorResetWorkerType2 = z::MotorResetPositionWorker2<SchedulerType, RealNumber, 2>;
 using ImuWorkerType = z::ImuProcessWorker<SchedulerType, DeviceImu*, RealNumber>;
 using MotorWorkerType = z::MotorControlWorker<SchedulerType, DeviceJoint*, RealNumber, JOINT_NUMBER>;
 using MotorPDWorkerType = z::MotorPDControlWorker<SchedulerType, RealNumber, JOINT_NUMBER>;
@@ -94,3 +90,7 @@ using LoggerWorkerType = z::AsyncLoggerWorker<SchedulerType, RealNumber, ImuAccR
 
 using CmdWorkerType = z::NetCmdWorker<SchedulerType, RealNumber, NetCommand3Pair>;
 using FlexPatchWorkerType = z::SimpleCallbackWorker<SchedulerType>;
+constexpr size_t OBSERVATION_STUCK_LENGTH = 5;
+
+/******define actor net************/
+using HumanlabInferenceWorkerType = z::LabInferenceWorker<SchedulerType, RealNumber, OBSERVATION_STUCK_LENGTH, JOINT_NUMBER>;

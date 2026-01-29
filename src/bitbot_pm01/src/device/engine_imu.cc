@@ -62,7 +62,10 @@ void EngineImu::Input(const RosInterface::Ptr ros_interface) {
 
   Eigen::Vector3d rpy = CalcRollPitchYawFromRotationMatrix(q.toRotationMatrix());
   
-  roll_  = rpy[0];
+  // roll_  = imu_msg.rpy.x;
+  // pitch_ = imu_msg.rpy.y;
+  // yaw_   = imu_msg.rpy.z;
+    roll_  = rpy[0];
   pitch_ = rpy[1];
   yaw_   = rpy[2];
   // ===== linear acceleration =====

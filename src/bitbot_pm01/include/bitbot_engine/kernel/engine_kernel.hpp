@@ -119,25 +119,12 @@ class EngineKernel : public KernelTpl<EngineKernel<UserData, cts...>,
     while (!this->kernel_config_data_.stop_flag) {
       this_time = std::chrono::high_resolution_clock::now();
 
-      // 计算周期时间 (代码不变)
       this->kernel_runtime_data_.periods_count++;
       this->kernel_runtime_data_.period =
           std::chrono::duration_cast<std::chrono::nanoseconds>(this_time - last_time)
               .count() /
           1e6;
       last_time = this_time;
-
-      // ============================================================
-      // [修复步骤 1]: 必须在这里读取总线！
-      // 这会触发 Engine_bus.cc -> ReadBus -> Engine_joint.cc -> Input
-      // 从而把 ros_interface 里的数据更新到 actual_position_ 等变量中
-      // ============================================================
-
-      
-      // 如果你的 WriteBus 没有调用 publish，保留下面这行；
-      // 如果 EngineBus::WriteBus 内部调用了 device->Output，且 device->Output 更新了 cmd 消息，
-      // 那么你需要确保最后有一个地方调用了 ros_interface_->PublishJointCommand()。
-      // ros_interface_->UpdateJointState();
 
       // 2) kernel tasks
       this->HandleEvents();
@@ -154,8 +141,8 @@ class EngineKernel : public KernelTpl<EngineKernel<UserData, cts...>,
       auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(
                          std::chrono::high_resolution_clock::now() - this_time)
                          .count();
-      if (elapsed < 2000) [[likely]] {
-        std::this_thread::sleep_for(std::chrono::microseconds(2000 - elapsed));
+      if (elapsed < 1000) [[likely]] {
+        std::this_thread::sleep_for(std::chrono::microseconds(1000 - elapsed));
       } else {
         RCLCPP_WARN(rclcpp::get_logger("bitbot_ros_interface"),
                     "Kernel loop over time: %ld us", elapsed);
